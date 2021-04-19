@@ -1,0 +1,32 @@
+<!-- navbar -->
+<nav class="navbar navbar-default myNav" style="position:fixed;width:100%;top:0px;background-color:#eee;border-radius: 0;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <div>
+                <a class="navbar-brand" style="color:black;font-size: 18px">{{title}}</a>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<div>
+    <button class="btn btn-me" style="margin-top: 81px;" (click)="addABox()">Add box</button>
+    
+    <!-- all boxes -->
+    <div class="container">
+        <div *ngFor="let div of divs" id="{{div}}" (click)="getTheClickedBox(div)" [class.selected-div]="selectedDiv === div"
+            [class.hide]="div===-999" class="my-boxes" [ngStyle]="{'background-color': bgColor[div]}"></div>
+    </div>
+
+    <!-- toggle -->
+    <div style="position: absolute;
+    top: 15px;
+    right: 15px;">
+        <label class="switch">
+            <input type="checkbox" (ngModelChange)="callToggle()" [(ngModel)]="untoggle" />
+            <div></div>
+        </label>
+    </div>
+</div>
